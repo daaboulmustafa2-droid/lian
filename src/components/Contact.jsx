@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, CheckCircle } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const WHATSAPP_LINK = 'https://wa.me/971569357355';
 const INSTAGRAM_LINK = 'https://www.instagram.com/propertybylian?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==';
@@ -28,6 +29,7 @@ const WhatsAppIcon = () => (
 const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwdJdVudVJj5FjnDFd7HJgwRLrn0clozpVlumlNolVLDXWrn3rhMjmWGlp2h_tWoA03/exec';
 
 const Contact = () => {
+  const { language, t } = useLanguage();
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -59,7 +61,7 @@ const Contact = () => {
 
       setIsSubmitted(true);
     } catch (err) {
-      setError('حدث خطأ أثناء الإرسال. يرجى المحاولة مرة أخرى.');
+      setError(t.contact.errorText);
     } finally {
       setIsLoading(false);
     }
@@ -79,51 +81,59 @@ const Contact = () => {
                 transition={{ duration: 0.8 }}
                 className="font-heading text-4xl lg:text-6xl font-black text-primary uppercase"
               >
-                تواصل <br /> <span className="text-secondary text-5xl lg:text-7xl">معنا.</span>
+                {language === 'ar' ? (
+                  <>
+                    تواصل <br /> <span className="text-secondary text-5xl lg:text-7xl">معنا.</span>
+                  </>
+                ) : (
+                  <>
+                    Get in <br /> <span className="text-secondary text-5xl lg:text-7xl">Touch.</span>
+                  </>
+                )}
               </motion.h2>
               <p className="font-body text-xl text-primary/60 max-w-md leading-relaxed">
-                اكتشف أفضل الفرص العقارية في الإمارات بخطوات بسيطة. تواصل معنا اليوم للحصول على استشارة مجانية مخصصة تلبي احتياجاتك .
+                {t.contact.description}
               </p>
             </div>
 
             <div className="space-y-8">
               {/* Phone */}
-              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-6 space-x-reverse group cursor-pointer">
+              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 group cursor-pointer">
                 <div className="w-14 h-14 rounded-full bg-white shadow-premium flex items-center justify-center text-secondary group-hover:bg-primary group-hover:text-white transition-all duration-300">
                   <Phone className="w-6 h-6" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-primary/40 uppercase tracking-widest">الهاتف</p>
+                  <p className="text-xs font-bold text-primary/40 uppercase tracking-widest">{t.contact.phone}</p>
                   <p className="text-xl font-heading font-bold text-primary tracking-tighter" dir="ltr">‎+971 56 935 7355</p>
                 </div>
               </a>
 
               {/* Email */}
-              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-6 space-x-reverse group cursor-pointer">
+              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 group cursor-pointer">
                 <div className="w-14 h-14 rounded-full bg-white shadow-premium flex items-center justify-center text-secondary group-hover:bg-primary group-hover:text-white transition-all duration-300">
                   <Mail className="w-6 h-6" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-primary/40 uppercase tracking-widest">البريد الإلكتروني</p>
+                  <p className="text-xs font-bold text-primary/40 uppercase tracking-widest">{t.contact.email}</p>
                   <p className="text-xl font-heading font-bold text-primary tracking-tighter">propertybylian@gmail.com</p>
                 </div>
               </a>
 
               {/* Location */}
-              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-6 space-x-reverse group cursor-pointer">
+              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="flex items-center gap-6 group cursor-pointer">
                 <div className="w-14 h-14 rounded-full bg-white shadow-premium flex items-center justify-center text-secondary group-hover:bg-primary group-hover:text-white transition-all duration-300">
                   <MapPin className="w-6 h-6" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-primary/40 uppercase tracking-widest">الموقع</p>
-                  <p className="text-xl font-heading font-bold text-primary tracking-tighter">دبي، الإمارات العربية المتحدة</p>
+                  <p className="text-xs font-bold text-primary/40 uppercase tracking-widest">{t.contact.locationLabel}</p>
+                  <p className="text-xl font-heading font-bold text-primary tracking-tighter">{t.contact.locationValue}</p>
                 </div>
               </a>
             </div>
 
             {/* Social Links */}
             <div className="pt-8">
-              <p className="text-xs font-bold text-primary/40 uppercase tracking-[0.3em] mb-6">تابعنا على</p>
+              <p className="text-xs font-bold text-primary/40 uppercase tracking-[0.3em] mb-6">{t.contact.follow}</p>
               <div className="flex items-center gap-6">
                 <motion.a
                   href={INSTAGRAM_LINK}
@@ -164,25 +174,30 @@ const Contact = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="relative rounded-[40px] shadow-premium bg-white p-10 lg:p-12 flex flex-col justify-center"
+            className="relative rounded-[40px] shadow-premium bg-white p-10 lg:p-12 flex flex-col justify-center w-full"
           >
             <div className="space-y-8">
-              <h3 className="font-heading font-black text-3xl text-primary leading-tight">
-                احجز استشارتك الآن
-              </h3>
+              <div className="space-y-2">
+                <h3 className="font-heading font-black text-3xl text-primary leading-tight">
+                  {t.contact.formTitle}
+                </h3>
+                <p className="font-body text-xs text-primary/50">
+                  {t.contact.formDescription}
+                </p>
+              </div>
               
               {isSubmitted ? (
                 <div className="bg-primary/5 p-8 rounded-2xl text-center space-y-4">
                   <div className="w-16 h-16 bg-secondary/10 text-secondary rounded-full flex items-center justify-center mx-auto mb-4">
                     <CheckCircle className="w-8 h-8" />
                   </div>
-                  <h4 className="font-heading font-bold text-2xl text-primary">تم الإرسال بنجاح</h4>
-                  <p className="font-body text-primary/60">سيتواصل معك أحد خبرائنا العقاريين قريباً لمساعدتك.</p>
+                  <h4 className="font-heading font-bold text-2xl text-primary">{t.contact.successTitle}</h4>
+                  <p className="font-body text-primary/60">{t.contact.successText}</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="space-y-2">
-                    <label className="text-xs font-bold text-primary/60 uppercase tracking-widest">الاسم الكامل</label>
+                    <label className="text-xs font-bold text-primary/60 uppercase tracking-widest">{t.contact.nameLabel}</label>
                     <input 
                       type="text" 
                       name="fullName"
@@ -190,11 +205,11 @@ const Contact = () => {
                       onChange={handleChange}
                       required 
                       className="w-full bg-off-white border border-primary/10 rounded-xl px-5 py-4 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all"
-                      placeholder="أدخل اسمك الكامل"
+                      placeholder={t.contact.namePlaceholder}
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-xs font-bold text-primary/60 uppercase tracking-widest">البريد الإلكتروني</label>
+                    <label className="text-xs font-bold text-primary/60 uppercase tracking-widest">{t.contact.emailLabel}</label>
                     <input 
                       type="email" 
                       name="email"
@@ -203,11 +218,11 @@ const Contact = () => {
                       required 
                       className="w-full bg-off-white border border-primary/10 rounded-xl px-5 py-4 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all text-left"
                       dir="ltr"
-                      placeholder="email@example.com"
+                      placeholder={t.contact.emailPlaceholder}
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-xs font-bold text-primary/60 uppercase tracking-widest">رقم الهاتف</label>
+                    <label className="text-xs font-bold text-primary/60 uppercase tracking-widest">{t.contact.phoneLabel}</label>
                     <input 
                       type="tel" 
                       name="phone"
@@ -216,11 +231,11 @@ const Contact = () => {
                       required 
                       className="w-full bg-off-white border border-primary/10 rounded-xl px-5 py-4 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all text-left"
                       dir="ltr"
-                      placeholder="+971 56 935 7355"
+                      placeholder={t.contact.phonePlaceholder}
                     />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-xs font-bold text-primary/60 uppercase tracking-widest">دولة الإقامة</label>
+                    <label className="text-xs font-bold text-primary/60 uppercase tracking-widest">{t.contact.countryLabel}</label>
                     <input 
                       type="text" 
                       name="country"
@@ -228,7 +243,7 @@ const Contact = () => {
                       onChange={handleChange}
                       required 
                       className="w-full bg-off-white border border-primary/10 rounded-xl px-5 py-4 focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-all"
-                      placeholder="أدخل دولة الإقامة"
+                      placeholder={t.contact.countryPlaceholder}
                     />
                   </div>
                   {error && (
@@ -239,9 +254,9 @@ const Contact = () => {
                   <button 
                     type="submit" 
                     disabled={isLoading}
-                    className={`w-full py-5 mt-2 bg-primary text-white font-bold text-sm uppercase tracking-widest rounded-full hover:bg-secondary transition-colors duration-300 shadow-premium ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
+                    className={`w-full py-5 mt-2 bg-primary text-white font-bold text-sm uppercase tracking-widest rounded-full hover:bg-secondary cursor-pointer transition-colors duration-300 shadow-premium ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
                   >
-                    {isLoading ? 'جاري الإرسال...' : 'إرسال الطلب'}
+                    {isLoading ? t.contact.sending : t.contact.submit}
                   </button>
                 </form>
               )}
@@ -254,7 +269,7 @@ const Contact = () => {
       {/* Footer copyright */}
       <div className="mt-24 border-t border-primary/5 py-12 text-center">
         <p className="text-primary/30 text-xs font-medium uppercase tracking-[0.5em]">
-          &copy; 2026 اليان العقارية. جميع الحقوق محفوظة.
+          {language === 'ar' ? '© 2026 اليان العقارية. جميع الحقوق محفوظة.' : '© 2026 Lian Real Estate. All rights reserved.'}
         </p>
       </div>
     </section>

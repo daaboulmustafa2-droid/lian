@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 const logos = [
   { name: 'NBC', url: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/NBC_logo.svg' },
@@ -10,13 +11,15 @@ const logos = [
 ];
 
 const SocialProof = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="py-16 bg-cream border-y border-primary/5">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-12">
           <div className="flex-shrink-0">
             <p className="font-heading font-black text-xs uppercase tracking-[0.3em] text-primary/40">
-              كما ظهر في
+              {t.social.featured}
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-12 md:gap-16 opacity-30 grayscale hover:grayscale-0 transition-all duration-500">

@@ -1,13 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-
-const stats = [
-  { label: 'إجمالي المبيعات', value: '+$8M', sub: 'حتى الآن' },
-  { label: 'متوسط العائد على الاستثمار', value: '250%', sub: 'تحقق لعملائنا' },
-  { label: 'سنوات الخبرة', value: '5', sub: 'في سوق العقارات' },
-];
+import { useLanguage } from '../context/LanguageContext';
 
 const Stats = () => {
+  const { language, t } = useLanguage();
+
+  const statsData = [
+    { value: t.stats.sales.value, label: t.stats.sales.label, sub: t.stats.sales.sub },
+    { value: t.stats.roi.value, label: t.stats.roi.label, sub: t.stats.roi.sub },
+    { value: t.stats.experience.value, label: t.stats.experience.label, sub: t.stats.experience.sub },
+  ];
+
   return (
     <section id="stats" className="py-24 bg-primary relative overflow-hidden">
       {/* Cityscape Background Overlay */}
@@ -22,14 +25,16 @@ const Stats = () => {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 lg:gap-8">
-          {stats.map((stat, index) => (
+          {statsData.map((stat, index) => (
             <motion.div 
               key={stat.label}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="flex flex-col space-y-2 border-r border-white/10 pr-8"
+              className={`flex flex-col space-y-2 border-white/10 ${
+                language === 'ar' ? 'border-r pr-8' : 'border-l pl-8'
+              }`}
             >
               <h3 className="font-heading font-black text-4xl lg:text-6xl text-white tracking-tighter">
                 {stat.value}
