@@ -6,43 +6,38 @@ const Stats = () => {
   const { language, t } = useLanguage();
 
   const statsData = [
-    { value: t.stats.sales.value, label: t.stats.sales.label, sub: t.stats.sales.sub },
-    { value: t.stats.roi.value, label: t.stats.roi.label, sub: t.stats.roi.sub },
     { value: t.stats.experience.value, label: t.stats.experience.label, sub: t.stats.experience.sub },
+    { value: t.stats.clients.value,    label: t.stats.clients.label,    sub: t.stats.clients.sub    },
+    { value: t.stats.sales.value,      label: t.stats.sales.label,      sub: t.stats.sales.sub      },
   ];
 
   return (
-    <section id="stats" className="py-24 bg-primary relative overflow-hidden">
-      {/* Cityscape Background Overlay */}
-      <div className="absolute inset-0 opacity-20 pointer-events-none">
-        <img 
-          src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=2000" 
-          alt="Dubai Skyline" 
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary via-primary/80 to-primary" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-12 lg:gap-8">
-          {statsData.map((stat, index) => (
-            <motion.div 
-              key={stat.label}
-              initial={{ opacity: 0, y: 30 }}
+    <section id="stats" className="py-20" style={{ background: '#0f0e0c', borderTop: '1px solid rgba(201,162,93,0.15)', borderBottom: '1px solid rgba(201,162,93,0.15)' }}>
+      <div className="max-w-6xl mx-auto px-6 lg:px-14">
+        <div
+          className="grid grid-cols-1 sm:grid-cols-3"
+          style={{ divide: 'auto' }}
+        >
+          {statsData.map((stat, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 22 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`flex flex-col space-y-2 border-white/10 ${
-                language === 'ar' ? 'border-r pr-8' : 'border-l pl-8'
-              }`}
+              transition={{ duration: 0.7, delay: i * 0.15 }}
+              className="flex flex-col items-center text-center py-10 px-8"
+              style={{
+                borderRight: i < 2 && language !== 'ar' ? '1px solid rgba(201,162,93,0.2)' : 'none',
+                borderLeft:  i < 2 && language === 'ar' ? '1px solid rgba(201,162,93,0.2)' : 'none',
+              }}
             >
-              <h3 className="font-heading font-black text-4xl lg:text-6xl text-white tracking-tighter">
+              <p className="font-serif text-secondary leading-none mb-3" style={{ fontSize: 'clamp(2.4rem,5vw,3.5rem)' }}>
                 {stat.value}
-              </h3>
-              <p className="font-bold text-xs uppercase tracking-widest text-secondary">
+              </p>
+              <p className="text-white/75 uppercase font-semibold mb-1.5" style={{ fontSize: '10px', letterSpacing: '0.25em' }}>
                 {stat.label}
               </p>
-              <p className="font-body text-xs text-white/40 uppercase tracking-widest">
+              <p className="text-white/35 font-light" style={{ fontSize: '11px' }}>
                 {stat.sub}
               </p>
             </motion.div>

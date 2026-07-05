@@ -8,7 +8,7 @@ import { LanguageProvider } from './context/LanguageContext';
 function App() {
   return (
     <LanguageProvider>
-      <main className="bg-cream min-h-screen text-primary selection:bg-secondary selection:text-white pt-20">
+      <main className="bg-primary min-h-screen text-white selection:bg-secondary selection:text-primary">
         <Navbar />
         <Hero />
         <Stats />

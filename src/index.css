@@ -1,14 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #1F1A17;
-  --color-secondary: #A68A56;
-  --color-cream: #FDFBF7;
-  --color-off-white: #FAF9F6;
-  --color-accent: #D4C4A8;
+  --color-primary: #0a0a0a;
+  --color-secondary: #c9a25d;
+  --color-cream: #f8f5f0;
+  --color-off-white: #faf9f6;
+  --color-accent: #d4c4a8;
   --font-heading: "Tajawal", sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
   --font-body: "Tajawal", sans-serif;
-  --shadow-premium: 0 10px 40px rgba(31, 26, 23, 0.05);
+  --shadow-premium: 0 10px 40px rgba(10, 10, 10, 0.05);
 }
 
 @layer base {
@@ -17,35 +18,48 @@
     overflow-y: auto;
     height: auto;
     min-height: 100vh;
+    scroll-behavior: smooth;
   }
   body {
-    background: #FDFBF7;
-    color: #1F1A17;
+    background: #f8f5f0;
+    color: #0a0a0a;
     font-family: "Tajawal", sans-serif;
   }
 }
 
 @layer utilities {
   .glassmorphism {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(10, 10, 10, 0.4);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(201, 162, 93, 0.1);
+  }
+  
+  .animate-ticker {
+    animation: ticker 40s linear infinite;
+  }
+}
+
+@keyframes ticker {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 /* Custom Scrollbar for a premium feel */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #FDFBF7; 
+  background: #0a0a0a; 
 }
 ::-webkit-scrollbar-thumb {
-  background: #A68A56; 
-  border-radius: 5px;
-  border: 2px solid #FDFBF7;
+  background: #c9a25d; 
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #1F1A17; 
+  background: #faf9f6; 
 }

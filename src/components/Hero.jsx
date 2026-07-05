@@ -1,117 +1,152 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 
-const Hero = () => {
-  const containerRef = useRef(null);
-  const { language, t } = useLanguage();
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  });
+// A striking aerial night-time Dubai shot (different from the one used before)
+const DUBAI_BG =
+  'https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=1920&q=85';
 
-  // Parallax effect: video container moves slightly slower than text
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+const Hero = () => {
+  const { language, t } = useLanguage();
+  const isAr = language === 'ar';
 
   return (
-    <section id="about" ref={containerRef} className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-cream px-6 lg:px-12 py-20 lg:py-32">
-      {/* Elegant Dubai Background Overlay */}
-      <div className="absolute inset-0 opacity-[0.08] pointer-events-none z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=2000" 
-          alt="Dubai Skyline" 
-          className="w-full h-full object-cover"
+    <section
+      id="hero"
+      className="relative min-h-screen flex items-center overflow-hidden"
+      dir={isAr ? 'rtl' : 'ltr'}
+    >
+      {/* ── Background ── */}
+      <div className="absolute inset-0">
+        <img
+          src={DUBAI_BG}
+          alt="Dubai skyline at dusk"
+          className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-cream/20 via-cream/80 to-cream" />
+        {/* gradient from left (text side) → transparent → dark right */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: isAr
+              ? 'linear-gradient(to left, rgba(10,10,10,0.96) 35%, rgba(10,10,10,0.55) 65%, rgba(10,10,10,0.18) 100%)'
+              : 'linear-gradient(to right, rgba(10,10,10,0.96) 35%, rgba(10,10,10,0.55) 65%, rgba(10,10,10,0.18) 100%)',
+          }}
+        />
+        {/* bottom fade */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-40"
+          style={{ background: 'linear-gradient(to top, #0a0a0a, transparent)' }}
+        />
       </div>
-      
-      <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center z-10">
-        
-        {/* Typography side */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="lg:col-span-7 flex flex-col space-y-8"
-        >
-          <div className="space-y-4">
-            <motion.h1 
-              className="font-heading text-6xl md:text-8xl lg:text-[90px] leading-[0.95] font-black tracking-tighter text-primary uppercase"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.3 }}
-            >
-              {language === 'ar' ? (
+
+      {/* ── Content ── */}
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-6 lg:px-14 pt-28 pb-20">
+        <div className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 ${isAr ? 'lg:flex-row-reverse' : ''}`}>
+
+          {/* Text Column */}
+          <motion.div
+            className="flex-1 flex flex-col gap-7"
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: 'easeOut' }}
+          >
+            {/* Label */}
+            <div className="flex items-center gap-3">
+              <span className="block w-10 h-px bg-secondary/60" />
+              <span
+                className="text-secondary uppercase tracking-[0.35em] font-medium"
+                style={{ fontSize: '10px' }}
+              >
+                {t.hero.subtitle}
+              </span>
+            </div>
+
+            {/* Heading */}
+            <h1 className="font-serif leading-[1.08]">
+              {isAr ? (
                 <>
-                  اليان <br />
-                  <span className="text-secondary drop-shadow-sm">ديوانه</span><span className="text-secondary">.</span>
+                  <span className="block text-white" style={{ fontSize: 'clamp(3rem,7vw,5.5rem)' }}>اليان</span>
+                  <span className="block text-secondary italic" style={{ fontSize: 'clamp(3rem,7vw,5.5rem)' }}>ديوانه</span>
                 </>
               ) : (
                 <>
-                  Lian <br />
-                  <span className="text-secondary drop-shadow-sm">Diwana</span><span className="text-secondary">.</span>
+                  <span className="block text-white" style={{ fontSize: 'clamp(3rem,7vw,5.5rem)' }}>Lian</span>
+                  <span className="block text-secondary italic" style={{ fontSize: 'clamp(3rem,7vw,5.5rem)' }}>Diwana</span>
                 </>
               )}
-            </motion.h1>
-          </div>
-          
-          {/* Catchy tagline */}
-          <motion.div
-            className="space-y-4"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.45 }}
-          >
-            <p className="font-body text-xl md:text-2xl lg:text-3xl font-bold text-primary leading-tight">
-              {t.hero.tagline1}<br />
-              <span className="text-secondary">{t.hero.tagline2}</span>
-            </p>
-            <p className="font-body text-sm md:text-base text-primary/60 max-w-xl leading-relaxed">
+            </h1>
+
+            {/* Divider */}
+            <div className="w-12 h-px bg-secondary/50" />
+
+            {/* Taglines */}
+            <div className="space-y-1">
+              <p className="text-white text-lg md:text-xl font-light leading-snug">
+                {t.hero.tagline1}
+              </p>
+              <p className="text-secondary text-lg md:text-xl font-light leading-snug">
+                {t.hero.tagline2}
+              </p>
+            </div>
+
+            <p className="text-white/55 text-sm leading-relaxed max-w-md font-light">
               {t.hero.description}
             </p>
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.6 }}
-          >
-            <a 
-              href="#contact"
-              className="inline-block px-8 py-4 bg-primary text-white text-xs font-bold uppercase tracking-widest rounded-full shadow-premium hover:bg-secondary hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
-            >
-              {t.hero.cta}
-            </a>
-          </motion.div>
-        </motion.div>
 
-        {/* Profile side */}
-        <motion.div 
-          style={{ y, opacity }}
-          className="lg:col-span-5 relative w-full aspect-[4/5] rounded-[40px] overflow-hidden shadow-premium group bg-secondary/5 flex items-center justify-center transition-all duration-700"
-        >
-          {/* Profile Photo */}
-          <img 
-            src="/img/profile.png" 
-            alt="Lian Diwana" 
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-            onError={(e) => {
-              // Fallback image if profile.png is missing
-              e.target.src = 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=1000';
-            }}
-          />
-          
-          <div className={`absolute bottom-10 text-white z-20 ${language === 'ar' ? 'right-10 text-right' : 'left-10 text-left'}`}>
-            <p className="font-heading font-black text-2xl uppercase tracking-tighter">{t.hero.location}</p>
-            <p className="font-medium text-xs text-secondary uppercase tracking-widest">{t.hero.hq}</p>
-          </div>
-        </motion.div>
+            {/* CTA */}
+            <div>
+              <motion.a
+                href="#contact"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-block border border-secondary text-secondary px-8 py-3.5 uppercase font-semibold hover:bg-secondary hover:text-primary transition-all duration-300"
+                style={{ fontSize: '11px', letterSpacing: '0.25em' }}
+              >
+                {t.hero.cta}
+              </motion.a>
+            </div>
+          </motion.div>
+
+          {/* Profile Photo Column */}
+          <motion.div
+            className="flex-shrink-0 w-full max-w-xs lg:max-w-sm relative"
+            initial={{ opacity: 0, x: isAr ? -40 : 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.2, ease: 'easeOut' }}
+          >
+            {/* Gold corner brackets */}
+            <div className="absolute -top-3 -left-3 w-10 h-10 border-t-2 border-l-2 border-secondary z-10 pointer-events-none" />
+            <div className="absolute -bottom-3 -right-3 w-10 h-10 border-b-2 border-r-2 border-secondary z-10 pointer-events-none" />
+
+            <div className="overflow-hidden" style={{ aspectRatio: '3/4' }}>
+              <img
+                src="/img/profile.jpeg"
+                alt="Lian Diwana"
+                className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700 ease-out"
+                onError={(e) => {
+                  e.target.src =
+                    'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800';
+                }}
+              />
+            </div>
+
+            {/* Location tag */}
+            <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end z-20">
+              <div className="bg-primary/80 backdrop-blur-sm px-4 py-2 border-l-2 border-secondary">
+                <p className="text-white font-semibold text-sm">{t.hero.location}</p>
+                <p className="text-secondary uppercase tracking-widest" style={{ fontSize: '9px' }}>{t.hero.hq}</p>
+              </div>
+            </div>
+          </motion.div>
+
+        </div>
       </div>
 
-      {/* Decorative subtle pulse */}
-      <div className="absolute -bottom-20 -right-20 w-[600px] h-[600px] bg-secondary/5 rounded-full blur-[120px] -z-10 pointer-events-none" />
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none">
+        <span className="text-white/30 uppercase" style={{ fontSize: '9px', letterSpacing: '0.3em' }}>{t.hero.scroll}</span>
+        <div className="w-px h-10 bg-gradient-to-b from-secondary/70 to-transparent" />
+      </div>
     </section>
   );
 };
