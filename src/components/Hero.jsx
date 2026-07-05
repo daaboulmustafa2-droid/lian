@@ -41,7 +41,7 @@ const Hero = () => {
               ) : (
                 <>
                   Lian <br />
-                  <span className="text-secondary drop-shadow-sm">Diwaneh</span><span className="text-secondary">.</span>
+                  <span className="text-secondary drop-shadow-sm">Diwana</span><span className="text-secondary">.</span>
                 </>
               )}
             </motion.h1>

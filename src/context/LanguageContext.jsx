@@ -4,13 +4,14 @@ import { translations } from '../utils/translations';
 const LanguageContext = createContext();
 
 export const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState('ar'); // Default to Arabic
+  const [language, setLanguage] = useState('en'); // Default to English
 
   useEffect(() => {
-    // Dynamically update document direction and language attribute
+    // Dynamically update document direction, language attribute, and title
     if (typeof document !== 'undefined') {
       document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
       document.documentElement.lang = language;
+      document.title = language === 'ar' ? 'اليان ديوانه.' : 'Lian Diwana.';
     }
   }, [language]);
 

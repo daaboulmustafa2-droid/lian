@@ -67,7 +67,7 @@ export const translations = {
       achievements: "Achievements",
       contact: "Book a Consultation",
       langButton: "العربية",
-      logo: "Lian"
+      logo: "Lian Diwana"
     },
     hero: {
       tagline1: "We build wealth and achieve your goals",

@@ -269,7 +269,7 @@ const Contact = () => {
       {/* Footer copyright */}
       <div className="mt-24 border-t border-primary/5 py-12 text-center">
         <p className="text-primary/30 text-xs font-medium uppercase tracking-[0.5em]">
-          {language === 'ar' ? '© 2026 اليان العقارية. جميع الحقوق محفوظة.' : '© 2026 Lian Real Estate. All rights reserved.'}
+          {language === 'ar' ? '© 2026 اليان ديوانه العقارية. جميع الحقوق محفوظة.' : '© 2026 Lian Diwana. All rights reserved.'}
         </p>
       </div>
     </section>
