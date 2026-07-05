@@ -12,7 +12,7 @@ const Stats = () => {
   ];
 
   return (
-    <section id="stats" className="py-20" style={{ background: '#0f0e0c', borderTop: '1px solid rgba(201,162,93,0.15)', borderBottom: '1px solid rgba(201,162,93,0.15)' }}>
+    <section id="stats" className="py-20" style={{ background: '#111d2e', borderTop: '1px solid rgba(201,162,93,0.18)', borderBottom: '1px solid rgba(201,162,93,0.18)' }}>
       <div className="max-w-6xl mx-auto px-6 lg:px-14">
         <div
           className="grid grid-cols-1 sm:grid-cols-3"

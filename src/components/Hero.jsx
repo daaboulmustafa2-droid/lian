@@ -13,7 +13,7 @@ const Hero = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden bg-primary"
       dir={isAr ? 'rtl' : 'ltr'}
     >
       {/* ── Background ── */}
@@ -28,14 +28,14 @@ const Hero = () => {
           className="absolute inset-0"
           style={{
             background: isAr
-              ? 'linear-gradient(to left, rgba(10,10,10,0.96) 35%, rgba(10,10,10,0.55) 65%, rgba(10,10,10,0.18) 100%)'
-              : 'linear-gradient(to right, rgba(10,10,10,0.96) 35%, rgba(10,10,10,0.55) 65%, rgba(10,10,10,0.18) 100%)',
+              ? 'linear-gradient(to left, rgba(13,21,32,0.97) 35%, rgba(13,21,32,0.6) 65%, rgba(13,21,32,0.15) 100%)'
+              : 'linear-gradient(to right, rgba(13,21,32,0.97) 35%, rgba(13,21,32,0.6) 65%, rgba(13,21,32,0.15) 100%)',
           }}
         />
         {/* bottom fade */}
         <div
           className="absolute bottom-0 left-0 right-0 h-40"
-          style={{ background: 'linear-gradient(to top, #0a0a0a, transparent)' }}
+          style={{ background: 'linear-gradient(to top, #0d1520, transparent)' }}
         />
       </div>
 
@@ -132,7 +132,7 @@ const Hero = () => {
 
             {/* Location tag */}
             <div className="absolute bottom-4 left-4 right-4 flex justify-between items-end z-20">
-              <div className="bg-primary/80 backdrop-blur-sm px-4 py-2 border-l-2 border-secondary">
+              <div className="px-4 py-2 border-l-2 border-secondary" style={{background:'rgba(13,21,32,0.85)', backdropFilter:'blur(8px)'}}>
                 <p className="text-white font-semibold text-sm">{t.hero.location}</p>
                 <p className="text-secondary uppercase tracking-widest" style={{ fontSize: '9px' }}>{t.hero.hq}</p>
               </div>

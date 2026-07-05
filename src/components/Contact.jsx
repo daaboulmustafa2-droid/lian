@@ -62,8 +62,8 @@ const Contact = () => {
       id="contact" 
       className="py-24 lg:py-36 relative"
       style={{
-        backgroundColor: '#0a0a0a',
-        backgroundImage: "linear-gradient(rgba(10,10,10,0.75), rgba(10,10,10,0.85)), url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1920&q=80')",
+        backgroundColor: '#0d1520',
+        backgroundImage: "linear-gradient(rgba(13,21,32,0.78), rgba(13,21,32,0.88)), url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1920&q=80')",
         backgroundSize: 'cover',
         backgroundPosition: 'center'
       }}

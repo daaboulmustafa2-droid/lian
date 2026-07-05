@@ -1,15 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #0a0a0a;
+  --color-primary: #0d1520;
   --color-secondary: #c9a25d;
   --color-cream: #f8f5f0;
   --color-off-white: #faf9f6;
   --color-accent: #d4c4a8;
+  --color-navy-light: #141f30;
+  --color-navy-mid: #111827;
   --font-heading: "Tajawal", sans-serif;
   --font-serif: "Cormorant Garamond", serif;
   --font-body: "Tajawal", sans-serif;
-  --shadow-premium: 0 10px 40px rgba(10, 10, 10, 0.05);
+  --shadow-premium: 0 10px 40px rgba(13, 21, 32, 0.3);
 }
 
 @layer base {
@@ -21,18 +23,18 @@
     scroll-behavior: smooth;
   }
   body {
-    background: #f8f5f0;
-    color: #0a0a0a;
+    background: #0d1520;
+    color: #ffffff;
     font-family: "Tajawal", sans-serif;
   }
 }
 
 @layer utilities {
   .glassmorphism {
-    background: rgba(10, 10, 10, 0.4);
+    background: rgba(13, 21, 32, 0.5);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(201, 162, 93, 0.1);
+    border: 1px solid rgba(201, 162, 93, 0.12);
   }
   
   .animate-ticker {
@@ -51,15 +53,15 @@
 
 /* Custom Scrollbar for a premium feel */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0a0a; 
+  background: #0d1520;
 }
 ::-webkit-scrollbar-thumb {
-  background: #c9a25d; 
-  border-radius: 4px;
+  background: #c9a25d;
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #faf9f6; 
+  background: #e0b86b;
 }
