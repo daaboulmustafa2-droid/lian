@@ -26,7 +26,7 @@ export const translations = {
         sub: "خبرة في سوق الإمارات العقاري"
       },
       clients: {
-        value: "250+",
+        value: "150+",
         label: "عميل تمت خدمتهم",
         sub: "علاقات مبنية على الثقة المستدامة"
       },
@@ -186,7 +186,7 @@ export const translations = {
         sub: "Expertise in the UAE property market"
       },
       clients: {
-        value: "250+",
+        value: "150+",
         label: "Clients Served",
         sub: "Relationships built on lasting trust"
       },
