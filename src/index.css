@@ -6,11 +6,13 @@
   --color-cream: #f8f5f0;
   --color-off-white: #faf9f6;
   --color-accent: #d4c4a8;
+  --color-text: #e8dece;
+  --color-text-muted: #9eafc7;
   --color-navy-light: #141f30;
   --color-navy-mid: #111827;
-  --font-heading: "Tajawal", sans-serif;
+  --font-heading: "Raleway", "Tajawal", sans-serif;
   --font-serif: "Cormorant Garamond", serif;
-  --font-body: "Tajawal", sans-serif;
+  --font-body: "Raleway", "Tajawal", sans-serif;
   --shadow-premium: 0 10px 40px rgba(13, 21, 32, 0.3);
 }
 
@@ -24,8 +26,19 @@
   }
   body {
     background: #0d1520;
-    color: #ffffff;
-    font-family: "Tajawal", sans-serif;
+    /* Warm champagne-white text — glows softly on navy */
+    color: #e8dece;
+    font-family: "Raleway", "Tajawal", sans-serif;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: "Cormorant Garamond", "Tajawal", serif;
+    color: #f0e8d8;
+    font-weight: 500;
+  }
+  p, span, a, li {
+    font-family: "Raleway", "Tajawal", sans-serif;
   }
 }
 
@@ -36,9 +49,17 @@
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid rgba(201, 162, 93, 0.12);
   }
-  
+
   .animate-ticker {
     animation: ticker 40s linear infinite;
+  }
+
+  /* Champagne text helper */
+  .text-champagne {
+    color: #e8dece;
+  }
+  .text-champagne-muted {
+    color: #9eafc7;
   }
 }
 
@@ -51,15 +72,15 @@
   }
 }
 
-/* Custom Scrollbar for a premium feel */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 ::-webkit-scrollbar-track {
   background: #0d1520;
 }
 ::-webkit-scrollbar-thumb {
-  background: #c9a25d;
+  background: linear-gradient(to bottom, #c9a25d, #8a6b35);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {

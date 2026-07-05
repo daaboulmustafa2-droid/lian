@@ -34,10 +34,10 @@ const Stats = () => {
               <p className="font-serif text-secondary leading-none mb-3" style={{ fontSize: 'clamp(2.4rem,5vw,3.5rem)' }}>
                 {stat.value}
               </p>
-              <p className="text-white/75 uppercase font-semibold mb-1.5" style={{ fontSize: '10px', letterSpacing: '0.25em' }}>
+              <p className="text-[#9eafc7] uppercase font-semibold mb-1.5" style={{ fontSize: '10px', letterSpacing: '0.25em' }}>
                 {stat.label}
               </p>
-              <p className="text-white/35 font-light" style={{ fontSize: '11px' }}>
+              <p className="text-[#9eafc7]/60 font-light" style={{ fontSize: '11px' }}>
                 {stat.sub}
               </p>
             </motion.div>
