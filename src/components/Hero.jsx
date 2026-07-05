@@ -65,13 +65,13 @@ const Hero = () => {
             <h1 className="font-serif leading-[1.08]">
               {isAr ? (
                 <>
-                  <span className="text-[#f0e8d8]" style={{ fontSize: 'clamp(3rem,7vw,5.5rem)' }}>اليان</span>
-                  <span className="text-secondary italic" style={{ fontSize: 'clamp(3rem,7vw,5.5rem)' }}>ديوانه</span>
+                  <span className="block text-white" style={{ fontSize: 'clamp(3rem,7vw,5.5rem)' }}>اليان</span>
+                  <span className="block text-secondary italic" style={{ fontSize: 'clamp(3rem,7vw,5.5rem)' }}>ديوانه</span>
                 </>
               ) : (
                 <>
-                  <span className="text-[#f0e8d8]" style={{ fontSize: 'clamp(3rem,7vw,5.5rem)' }}>Lian</span>
-                  <span className="text-secondary italic" style={{ fontSize: 'clamp(3rem,7vw,5.5rem)' }}>Diwana</span>
+                  <span className="block text-white" style={{ fontSize: 'clamp(3rem,7vw,5.5rem)' }}>Lian</span>
+                  <span className="block text-secondary italic" style={{ fontSize: 'clamp(3rem,7vw,5.5rem)' }}>Diwana</span>
                 </>
               )}
             </h1>
@@ -81,7 +81,7 @@ const Hero = () => {
 
             {/* Taglines */}
             <div className="space-y-1">
-              <p className="text-[#e8dece] text-lg md:text-xl font-light leading-snug">
+              <p className="text-white text-lg md:text-xl font-light leading-snug">
                 {t.hero.tagline1}
               </p>
               <p className="text-secondary text-lg md:text-xl font-light leading-snug">
@@ -89,7 +89,7 @@ const Hero = () => {
               </p>
             </div>
 
-            <p className="text-[#9eafc7] text-sm leading-relaxed max-w-md font-light">
+            <p className="text-white/55 text-sm leading-relaxed max-w-md font-light">
               {t.hero.description}
             </p>
 
