@@ -17,6 +17,16 @@ const Hero = () => {
 
   return (
     <section id="about" ref={containerRef} className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-cream px-6 lg:px-12 py-20 lg:py-32">
+      {/* Elegant Dubai Background Overlay */}
+      <div className="absolute inset-0 opacity-[0.08] pointer-events-none z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&q=80&w=2000" 
+          alt="Dubai Skyline" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-cream/20 via-cream/80 to-cream" />
+      </div>
+      
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-16 items-center z-10">
         
         {/* Typography side */}
@@ -77,22 +87,21 @@ const Hero = () => {
           </motion.div>
         </motion.div>
 
-        {/* Video side */}
+        {/* Profile side */}
         <motion.div 
           style={{ y, opacity }}
           className="lg:col-span-5 relative w-full aspect-[4/5] rounded-[40px] overflow-hidden shadow-premium group bg-secondary/5 flex items-center justify-center transition-all duration-700"
         >
-          {/* Background Video */}
-          <video 
-            autoPlay 
-            muted 
-            loop 
-            playsInline 
+          {/* Profile Photo */}
+          <img 
+            src="/img/profile.png" 
+            alt="Lian Diwana" 
             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-          >
-            <source src="/video/Video mp4.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
+            onError={(e) => {
+              // Fallback image if profile.png is missing
+              e.target.src = 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=1000';
+            }}
+          />
           
           <div className={`absolute bottom-10 text-white z-20 ${language === 'ar' ? 'right-10 text-right' : 'left-10 text-left'}`}>
             <p className="font-heading font-black text-2xl uppercase tracking-tighter">{t.hero.location}</p>
