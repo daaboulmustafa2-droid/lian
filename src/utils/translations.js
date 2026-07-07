@@ -10,10 +10,10 @@ export const translations = {
       logo: "اليان ديوانه"
     },
     hero: {
-      subtitle: "مستشار عقاري دولي",
+      subtitle: "مستشار الاستثمار العقاري",
       tagline1: "نصنع ثروات و نحقق أهدافك",
       tagline2: "في قلب دبي.",
-      description: "مستشار عقاري متخصص في السوق الإماراتي. أقوم بتحويل خبرتي الممتدة لأكثر من 5 سنوات وعلاقاتي الوثيقة مع كبار المطورين إلى فرص استثمارية استثنائية تنمو وتدوم.",
+      description: "شريكك الموثوق في عقارات دولة الإمارات، والمرشد الأمثل للعملاء في السوق العقاري الإماراتي.",
       location: "دبي",
       hq: "المقر الرئيسي العالمي",
       cta: "احجز استشارتك الآن",
@@ -23,16 +23,16 @@ export const translations = {
       experience: {
         value: "5+ سنوات",
         label: "سنوات الخبرة",
-        sub: "خبرة في سوق الإمارات العقاري"
+        sub: "أكثر من 5 سنوات من الخبرة في السوق"
       },
       clients: {
-        value: "150+",
-        label: "عميل تمت خدمتهم",
+        value: "60+",
+        label: "عميل تمت خدمتهم عالمياً",
         sub: "علاقات مبنية على الثقة المستدامة"
       },
       sales: {
-        value: "+100M$ USD",
-        label: "إجمالي المبيعات",
+        value: "40M+",
+        label: "في المعاملات العقارية",
         sub: "صفقات ناجحة تمت إدارتها بالكامل"
       }
     },
@@ -45,30 +45,83 @@ export const translations = {
       signatureTitle: "مستشار عقاري أول · دبي",
       ctaText: "تواصل معنا"
     },
-    services: {
-      tag: "ما نقدمه",
-      title: "خدماتنا الاستشارية",
-      desc: "حلول عقارية مخصصة عبر دولة الإمارات، مصممة لتقديم قيمة وأمان ونمو طويل الأجل.",
+    transparency: {
+      tag: "الشفافية المطلقة",
+      title: "التنقل في السوق بشفافية مطلقة",
+      desc: "نؤمن بأن الثقة تبنى على الصدق والموثوقية. هكذا نضمن حماية مصالحك الاستثمارية وتوجيهك بأمان.",
       items: [
         {
+          title: "فحص نزاهة المطورين العقاريين بشكل محايد",
+          desc: "نقوم بتحليل سجل المطورين وجداول البناء والاستقرار المالي بدقة قبل التوصية بأي مشروع. أنت تستثمر فقط مع الأسماء الموثوقة ذات السمعة الطيبة."
+        },
+        {
+          title: "تحليل عوائد الاستثمار القائم على البيانات",
+          desc: "العقارات فئة أصول استثمارية. ندعم كل خيار عقاري ببيانات دقيقة: الأداء التاريخي للمجمع السكني، توقعات صافي العوائد الحقيقية، ومؤشرات نمو رأس المال الواقعية."
+        },
+        {
+          title: "تنفيذ عالمي سلس ومعاملات بلا عناء",
+          desc: "سواء كنت مستثمراً من خارج الدولة أو تبحث عن مسكن محلي، تتم إدارة العملية الإدارية بالكامل من البداية وحتى النهاية لضمان راحة بالك وانتقال سلس ومثالي."
+        }
+      ]
+    },
+    services: {
+      tag: "الخدمات / كيف نعمل معاً",
+      title: "كيف نعمل معاً",
+      desc: "إطار استشاري شامل ومتكامل مصمم لمرافقتك وإرشادك في كل مرحلة من مراحل رحلتك الاستثمارية.",
+      sections: [
+        {
           num: "01",
-          title: "الاستثمارات قيد الإنشاء",
-          desc: "مشاريع حصرية فاخرة في دبي وأبوظبي ورأس الخيمة بأفضل الأسعار."
+          title: "الاستراتيجية والعقارات قيد الإنشاء",
+          bullets: [
+            {
+              title: "تنبيهات الإطلاق الفوري",
+              desc: "المشاركة المباشرة لأحدث تفاصيل المشاريع والأسعار فور صدورها."
+            },
+            {
+              title: "رسم خرائط النمو",
+              desc: "استهداف المناطق المهيأة والمستعدة لارتفاع القيمة الإنشائية والبنية التحتية."
+            },
+            {
+              title: "الرافعة المالية للدفع",
+              desc: "توفير خطط دفع مرنة للغاية وفعالة من حيث رأس المال لتسهيل الشراء."
+            }
+          ]
         },
         {
           num: "02",
-          title: "المحافظ الدولية",
-          desc: "فرص منسقة بعناية ومخصصة للمستثمرين الباحثين عن تنويع عقاري عالمي."
+          title: "التوافق الاستثماري الفاخر",
+          bullets: [
+            {
+              title: "مواقع متميزة واستثنائية",
+              desc: "وصول نخبة وحصري في وسط مدينة دبي، نخلة جميرا، دبي مارينا والمناطق الفاخرة الجديدة."
+            },
+            {
+              title: "مفاوضات صارمة وحاسمة",
+              desc: "دراسة عميقة لتقييم السوق لتأمين القيمة العادلة والحقيقية لصفقتك."
+            },
+            {
+              title: "الامتثال التام للقوانين",
+              desc: "إدارة خالية من التوتر والقلق لأنظمة مؤسسة التنظيم العقاري (RERA) وعمليات نقل الملكية."
+            }
+          ]
         },
         {
           num: "03",
-          title: "إعادة البيع واستراتيجية الخروج",
-          desc: "توجيه استراتيجي دقيق لبيع العقارات وتسييل الأصول لتحقيق أقصى عوائد مالية."
-        },
-        {
-          num: "04",
-          title: "الاستشارات العقارية المتكاملة",
-          desc: "استشارات مخصصة ومتوافقة مع أهدافك المالية وجدولك الزمني الخاص."
+          title: "ما بعد التسليم والتسييل (الخروج)",
+          bullets: [
+            {
+              title: "التحقق من جودة العقار",
+              desc: "فحص جودة البناء والتشطيبات النهائية للوحدة قبل الاستلام الرسمي للمفتاح."
+            },
+            {
+              title: "إدارة العقارات الفعالة",
+              desc: "إشراف شامل وإدارة متكاملة لأصولك العقارية لضمان أفضل تشغيل واستقرار بعد التسليم."
+            },
+            {
+              title: "استراتيجية الخروج الناجحة",
+              desc: "مراقبة مستمرة ونشطة للسوق لتحديد الفرصة المثالية لإعادة البيع وتحقيق أعلى عائد ممكن."
+            }
+          ]
         }
       ]
     },
@@ -81,9 +134,9 @@ export const translations = {
       enquire: "استفسر الآن"
     },
     developers: {
-      tag: "شركاء التطوير العقاري",
-      title: "كبار المطورين العقاريين",
-      desc: "شراكات حصرية مع المطورين العقاريين الأكثر عراقة وموثوقية في دولة الإمارات."
+      tag: "الوصول للمشاريع",
+      title: "أبرز المطورين العقاريين",
+      desc: "نقدم لعملائنا أفضل الفرص الاستثمارية والوحدات الحصرية من المطورين الأكثر عراقة وموثوقية في دولة الإمارات."
     },
     whyDubai: {
       tag: "الفرصة الاستثمارية",
@@ -92,7 +145,7 @@ export const translations = {
       items: [
         {
           title: "0% ضرائب على الدخل",
-          desc: "لا توجد ضرائب على الدخل الشخصي أو الأرباح الرأسمالية الناتجة عن الاستثمار العقاري."
+          desc: "لا توجد ضرائب على الدخل شخصي أو الأرباح الرأسمالية الناتجة عن الاستثمار العقاري."
         },
         {
           title: "أهلية التأشيرة الذهبية",
@@ -170,10 +223,10 @@ export const translations = {
       logo: "Lian Diwana"
     },
     hero: {
-      subtitle: "International Property Advisor",
+      subtitle: "Property Investment Advisor",
       tagline1: "We build wealth and achieve your goals",
       tagline2: "in the heart of Dubai.",
-      description: "A premier UAE real estate consultant, leveraging 5+ years of strategic insights and direct developer alliances to transform market potential into generational portfolio growth.",
+      description: "Your trusted partner in UAE real estate, guiding clients through the UAE real estate market.",
       location: "Dubai",
       hq: "Global HQ",
       cta: "Enquire Now",
@@ -183,16 +236,16 @@ export const translations = {
       experience: {
         value: "5+ Years",
         label: "Years Experience",
-        sub: "Expertise in the UAE property market"
+        sub: "5+ Years of Market Expertise"
       },
       clients: {
-        value: "150+",
-        label: "Clients Served",
+        value: "60+",
+        label: "Clients Served Globally",
         sub: "Relationships built on lasting trust"
       },
       sales: {
-        value: "+$100M USD",
-        label: "In Transactions",
+        value: "40M+",
+        label: "in Transactions",
         sub: "Successfully brokered and managed assets"
       }
     },
@@ -205,30 +258,83 @@ export const translations = {
       signatureTitle: "Senior Property Advisor · Dubai",
       ctaText: "Get In Touch"
     },
-    services: {
-      tag: "WHAT WE OFFER",
-      title: "SERVICES",
-      desc: "Tailored real estate solutions across the UAE, designed to deliver value, security, and long-term growth.",
+    transparency: {
+      tag: "ABSOLUTE TRANSPARENCY",
+      title: "Navigating the Market with Absolute Transparency",
+      desc: "We believe trust is built on truth. Here is how we ensure your interests are protected and your investments are guided safely.",
       items: [
         {
+          title: "Unbiased Developer Health Checks",
+          desc: "We strictly analyze developer track records, construction timelines, and financial stability before making a recommendation. You only invest in projects backed by solid reputations."
+        },
+        {
+          title: "Data-Driven ROI Analysis",
+          desc: "Real estate is an asset class. We back every property option with hard data—historical community performance, genuine net ROI projections, and realistic capital appreciation metrics."
+        },
+        {
+          title: "Seamless Global Execution",
+          desc: "Whether handling transactions as an overseas investor from afar or looking for a home locally, the entire administrative pipeline is managed end-to-end to ensure absolute peace of mind and an effortless transition."
+        }
+      ]
+    },
+    services: {
+      tag: "SERVICES / HOW WE WORK TOGETHER",
+      title: "How We Work Together",
+      desc: "A comprehensive, end-to-end advisory framework designed to guide you through every stage of your investment journey.",
+      sections: [
+        {
           num: "01",
-          title: "Off-Plan Investments",
-          desc: "Premium developments in Dubai, Abu Dhabi & Ras Al Khaimah at optimized entry points."
+          title: "Strategy & Off-Plan",
+          bullets: [
+            {
+              title: "Instant Launch Alerts",
+              desc: "Direct sharing of the latest project details and pricing."
+            },
+            {
+              title: "Growth Mapping",
+              desc: "Targeting zones primed for infrastructure appreciation."
+            },
+            {
+              title: "Payment Leverage",
+              desc: "Sourcing highly flexible, capital-efficient payment plans."
+            }
+          ]
         },
         {
           num: "02",
-          title: "International Portfolios",
-          desc: "Curated high-yield property assets tailored for cross-border diversification."
+          title: "Premium Matchmaking",
+          bullets: [
+            {
+              title: "Prime Locations",
+              desc: "Elite access in Downtown, Palm Jumeirah, Dubai Marina, and new luxury areas."
+            },
+            {
+              title: "Sharp Negotiation",
+              desc: "Deep-dive market valuation to secure genuine fair value."
+            },
+            {
+              title: "Total Compliance",
+              desc: "Stress-free management of RERA regulations and transfers."
+            }
+          ]
         },
         {
           num: "03",
-          title: "Resale & Exit Strategy",
-          desc: "Strategic guidance to exit and resell assets to capture maximum capital appreciation."
-        },
-        {
-          num: "04",
-          title: "Property Consultation",
-          desc: "Personalized, data-driven real estate advisory aligned with your specific financial goals."
+          title: "Post-Handover & Exit",
+          bullets: [
+            {
+              title: "Property Verification",
+              desc: "Verifying the unit's build quality and finishing before the official key handover."
+            },
+            {
+              title: "Property Management",
+              desc: "Comprehensive management of your property asset post-handover."
+            },
+            {
+              title: "Exit Strategy",
+              desc: "Active market monitoring to target your highest-return resale."
+            }
+          ]
         }
       ]
     },
@@ -241,9 +347,9 @@ export const translations = {
       enquire: "Enquire"
     },
     developers: {
-      tag: "Developer Partnerships",
-      title: "MAJOR DEVELOPERS",
-      desc: "Partnered with the UAE's most prestigious and reliable real estate developers."
+      tag: "PORTFOLIO COVERAGE",
+      title: "LEADING DEVELOPERS",
+      desc: "Providing our clients with direct access to premium projects and inventory from the UAE's most prestigious and reliable real estate developers."
     },
     whyDubai: {
       tag: "The Opportunity",

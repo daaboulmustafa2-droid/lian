@@ -37,7 +37,8 @@ const Navbar = () => {
         >
           {[
             { href: '#hero', label: t.nav.home },
-            { href: '#stats', label: t.nav.achievements },
+            { href: '#transparency', label: t.transparency.tag },
+            { href: '#services', label: t.services.title },
             { href: '#contact', label: t.nav.contact },
           ].map(({ href, label }) => (
             <a
