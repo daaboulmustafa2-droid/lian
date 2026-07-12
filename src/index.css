@@ -51,7 +51,8 @@
   }
 
   .animate-ticker {
-    animation: ticker 40s linear infinite;
+    animation: ticker 35s linear infinite;
+    will-change: transform;
   }
 
   /* Silver text helper */

@@ -18,13 +18,13 @@ const Services = () => {
         
         {/* Section Title */}
         <div className="text-center mb-24">
-          <p className="text-secondary text-[10px] tracking-[0.4em] uppercase font-semibold mb-4">
+          <h2 className="font-serif text-4xl md:text-5xl text-white font-medium mb-4">
             {t.services.tag}
-          </p>
-          <h2 className="font-serif text-4xl md:text-5xl text-white font-medium mb-5">
-            {t.services.title}
           </h2>
-          <div className="w-14 h-px bg-secondary mx-auto mb-6"></div>
+          <div className="w-14 h-px bg-secondary mx-auto mb-5"></div>
+          <p className="text-secondary text-[10px] tracking-[0.4em] uppercase font-semibold mb-6">
+            {t.services.subtitle}
+          </p>
           <p className="text-white/50 text-sm md:text-[15px] max-w-lg mx-auto font-light leading-relaxed">
             {t.services.desc}
           </p>
@@ -79,7 +79,7 @@ const Services = () => {
                   >
                     <div className="w-2.5 h-2.5 bg-secondary rounded-full mt-2 shrink-0 group-hover:bg-white transition-colors duration-300" />
                     <div>
-                      <h4 className="text-white text-lg font-medium font-sans mb-1 group-hover:text-secondary transition-colors duration-300">
+                      <h4 className="text-white text-lg font-medium font-body mb-1 group-hover:text-secondary transition-colors duration-300">
                         {bullet.title}
                       </h4>
                       <p className="text-white/50 text-sm leading-relaxed font-light">

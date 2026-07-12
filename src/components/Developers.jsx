@@ -41,7 +41,7 @@ const Developers = () => {
   ];
 
   // Double the list for infinite looping marquee
-  const loopedDevelopers = [...developers, ...developers, ...developers];
+  const loopedDevelopers = [...developers, ...developers];
 
   return (
     <section id="developers" className="py-20 bg-[#070b10] border-t border-b border-secondary/10 overflow-hidden">
@@ -60,23 +60,23 @@ const Developers = () => {
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#070b10] to-transparent z-10" />
 
         {/* Marquee list */}
-        <div className="flex w-max items-center gap-16 sm:gap-24 animate-ticker">
+        <div className="flex w-max items-center gap-16 sm:gap-24 animate-ticker" style={{ willChange: 'transform' }}>
           {loopedDevelopers.map((dev, i) => (
-            <div key={i} className="flex items-center justify-center shrink-0 min-w-[120px]">
+            <div key={i} className="flex items-center justify-center shrink-0" style={{ width: '140px', height: '48px' }}>
               {dev.logo ? (
                 <img 
                   src={dev.logo} 
                   alt={dev.name} 
-                  className="h-10 sm:h-12 w-auto object-contain brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300"
+                  className="w-full h-full object-contain brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300"
                   onError={(e) => {
                     e.target.style.display = 'none';
-                    e.target.nextSibling.style.display = 'block';
+                    e.target.nextSibling.style.display = 'flex';
                   }}
                 />
               ) : null}
               <span 
-                className="text-white/60 hover:text-white font-serif text-lg tracking-[0.2em] font-medium transition-colors duration-300"
-                style={{ display: dev.logo ? 'none' : 'block' }}
+                className="text-white/60 hover:text-white font-body text-sm tracking-[0.2em] font-semibold uppercase transition-colors duration-300 w-full text-center"
+                style={{ display: dev.logo ? 'none' : 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}
               >
                 {dev.name}
               </span>
