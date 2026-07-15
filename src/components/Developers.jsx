@@ -6,38 +6,13 @@ const Developers = () => {
   const isAr = language === 'ar';
 
   const developers = [
-    {
-      name: 'EMAAR',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/f/fd/Emaar_logo.svg'
-    },
-    {
-      name: 'NAKHEEL',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/6/67/Nakheel_logo.svg'
-    },
-    {
-      name: 'ALDAR',
-      logo: null
-    },
-    {
-      name: 'MERAAS',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/6/68/Meraas-logo.svg'
-    },
-    {
-      name: 'DAMAC',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/1/11/Damac_logo.svg'
-    },
-    {
-      name: 'SOBHA REALTY',
-      logo: null
-    },
-    {
-      name: 'DUBAI HOLDING',
-      logo: null
-    },
-    {
-      name: 'AZIZI',
-      logo: 'https://upload.wikimedia.org/wikipedia/commons/2/23/Azizi-developments.png'
-    }
+    { name: 'EMAAR',         logo: '/logos/emaar.svg'         },
+    { name: 'NAKHEEL',       logo: '/logos/nakheel.svg'       },
+    { name: 'MERAAS',        logo: '/logos/meraas.svg'        },
+    { name: 'DAMAC',         logo: '/logos/damac.svg'         },
+    { name: 'SOBHA REALTY',  logo: '/logos/sobha.svg'         },
+    { name: 'DUBAI HOLDING', logo: '/logos/dubai-holding.png' },
+    { name: 'BINGHATTI',     logo: '/logos/binghatti.webp'    },
   ];
 
   // Double the list for infinite looping marquee
@@ -54,29 +29,28 @@ const Developers = () => {
         </h3>
       </div>
 
-      <div className="relative w-full overflow-hidden">
+      <div className="relative w-full overflow-hidden" dir="ltr">
         {/* Gradients for fading edges */}
         <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#070b10] to-transparent z-10" />
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#070b10] to-transparent z-10" />
 
         {/* Marquee list */}
-        <div className="flex w-max items-center gap-16 sm:gap-24 animate-ticker" style={{ willChange: 'transform' }}>
+        <div className="flex w-max items-center gap-20 sm:gap-28 animate-ticker" style={{ willChange: 'transform' }}>
           {loopedDevelopers.map((dev, i) => (
-            <div key={i} className="flex items-center justify-center shrink-0" style={{ width: '140px', height: '48px' }}>
-              {dev.logo ? (
-                <img 
-                  src={dev.logo} 
-                  alt={dev.name} 
-                  className="w-full h-full object-contain brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                    e.target.nextSibling.style.display = 'flex';
-                  }}
-                />
-              ) : null}
-              <span 
-                className="text-white/60 hover:text-white font-body text-sm tracking-[0.2em] font-semibold uppercase transition-colors duration-300 w-full text-center"
-                style={{ display: dev.logo ? 'none' : 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}
+            <div key={i} className="flex items-center justify-center shrink-0">
+              <img
+                src={dev.logo}
+                alt={dev.name}
+                style={{ height: '20px', width: 'auto' }}
+                className="brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  if (e.target.nextSibling) e.target.nextSibling.style.display = 'block';
+                }}
+              />
+              <span
+                className="text-white/50 text-[10px] tracking-[0.3em] font-semibold uppercase"
+                style={{ display: 'none' }}
               >
                 {dev.name}
               </span>
