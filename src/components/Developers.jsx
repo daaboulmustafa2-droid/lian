@@ -5,14 +5,22 @@ const Developers = () => {
   const { t, language } = useLanguage();
   const isAr = language === 'ar';
 
+  //
+  // Each SVG fills its bounding box differently.
+  // EMAAR/NAKHEEL letterforms span ~100% of their viewBox height → they need a
+  // smaller CSS height to appear the same visual size as DAMAC, whose rotated
+  // content only fills ~65% of its 10-unit viewBox at any given CSS height.
+  //
+  // Target: all logos should display ink at approximately 13-14 px tall.
+  //
   const developers = [
-    { name: 'EMAAR',         logo: '/logos/emaar.svg'         },
-    { name: 'NAKHEEL',       logo: '/logos/nakheel.svg'       },
-    { name: 'MERAAS',        logo: '/logos/meraas.svg'        },
-    { name: 'DAMAC',         logo: '/logos/damac.svg'         },
-    { name: 'SOBHA REALTY',  logo: '/logos/sobha.svg'         },
-    { name: 'DUBAI HOLDING', logo: '/logos/dubai-holding.png' },
-    { name: 'BINGHATTI',     logo: '/logos/binghatti.webp'    },
+    { name: 'EMAAR',         logo: '/logos/emaar.svg',         h: 13 }, // fills 99% viewBox → small CSS h
+    { name: 'NAKHEEL',       logo: '/logos/nakheel.svg',       h: 13 }, // fills 98% viewBox → small CSS h
+    { name: 'MERAAS',        logo: '/logos/meraas.svg',        h: 14 }, // fills ~90% viewBox
+    { name: 'DAMAC',         logo: '/logos/damac.svg',         h: 20 }, // fills ~65% → needs larger CSS h
+    { name: 'SOBHA REALTY',  logo: '/logos/sobha.svg',         h: 20 }, // 2-row design, needs height
+    { name: 'DUBAI HOLDING', logo: '/logos/dubai-holding.png', h: 26 }, // icon+2 text rows, needs most height
+    { name: 'BINGHATTI',     logo: '/logos/binghatti.webp',    h: 20 }, // icon+2-row text
   ];
 
   // Double the list for infinite looping marquee
@@ -41,7 +49,7 @@ const Developers = () => {
               <img
                 src={dev.logo}
                 alt={dev.name}
-                style={{ height: '20px', width: 'auto' }}
+                style={{ height: `${dev.h}px`, width: 'auto' }}
                 className="brightness-0 invert opacity-60 hover:opacity-100 transition-opacity duration-300"
                 onError={(e) => {
                   e.target.style.display = 'none';
