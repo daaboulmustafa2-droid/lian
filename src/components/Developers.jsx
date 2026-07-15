@@ -13,14 +13,20 @@ const Developers = () => {
   //
   // Target: all logos should display ink at approximately 13-14 px tall.
   //
+  //
+  // Mathematically calibrated heights based on visual area matching (~1800 sq px):
+  // Wide logos (like DAMAC, R=8) need less height, while taller/stacked logos
+  // (like DUBAI HOLDING, R=1.46) need more height so they all have the same visual weight.
+  // We cropped the transparent padding from dubai-holding.png and binghatti.webp to make this perfect.
+  //
   const developers = [
-    { name: 'EMAAR',         logo: '/logos/emaar.svg',         h: 13 }, // fills 99% viewBox → small CSS h
-    { name: 'NAKHEEL',       logo: '/logos/nakheel.svg',       h: 13 }, // fills 98% viewBox → small CSS h
-    { name: 'MERAAS',        logo: '/logos/meraas.svg',        h: 14 }, // fills ~90% viewBox
-    { name: 'DAMAC',         logo: '/logos/damac.svg',         h: 20 }, // fills ~65% → needs larger CSS h
-    { name: 'SOBHA REALTY',  logo: '/logos/sobha.svg',         h: 20 }, // 2-row design, needs height
-    { name: 'DUBAI HOLDING', logo: '/logos/dubai-holding.png', h: 26 }, // icon+2 text rows, needs most height
-    { name: 'BINGHATTI',     logo: '/logos/binghatti.webp',    h: 20 }, // icon+2-row text
+    { name: 'EMAAR',         logo: '/logos/emaar.svg',         h: 18 },
+    { name: 'NAKHEEL',       logo: '/logos/nakheel.svg',       h: 18 },
+    { name: 'MERAAS',        logo: '/logos/meraas.svg',        h: 24 }, // has 10% padding
+    { name: 'DAMAC',         logo: '/logos/damac.svg',         h: 16 },
+    { name: 'SOBHA REALTY',  logo: '/logos/sobha.svg',         h: 24 },
+    { name: 'DUBAI HOLDING', logo: '/logos/dubai-holding.png', h: 36 },
+    { name: 'BINGHATTI',     logo: '/logos/binghatti.webp',    h: 20 },
   ];
 
   // Double the list for infinite looping marquee
@@ -43,9 +49,13 @@ const Developers = () => {
         <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#070b10] to-transparent z-10" />
 
         {/* Marquee list */}
-        <div className="flex w-max items-center gap-20 sm:gap-28 animate-ticker" style={{ willChange: 'transform' }}>
+        <div className="flex w-max items-center gap-16 sm:gap-20 animate-ticker" style={{ willChange: 'transform' }}>
           {loopedDevelopers.map((dev, i) => (
-            <div key={i} className="flex items-center justify-center shrink-0">
+            <div
+              key={i}
+              className="flex items-center justify-center shrink-0"
+              style={{ width: '150px', height: '56px' }}
+            >
               <img
                 src={dev.logo}
                 alt={dev.name}
